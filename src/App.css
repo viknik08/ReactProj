@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,31 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+/* ============================= */
+
+.wraper {
+	display: grid;
+	grid-template-areas:
+		"h h "
+		"n c  ";
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 2fr 10fr;
+	/* grid-gap: 10px; */
+}
+.header {
+	grid-area: h;
+	background: rgb(255, 171, 171);
+}
+.navi {
+	grid-area: n;
+	background: rgb(248, 253, 158);
+}
+.content {
+	grid-area: c;
+	background: rgb(143, 236, 207);
+}
+.content img {
+	width: 70%;
 }
