@@ -1,0 +1,17 @@
+.post {
+	background: rgb(135, 4, 4);
+}
+
+.post__nth {
+}
+.post__nth img {
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	padding: 10px;
+}
+
+.postSpan {
+	padding: 0px 0px 10px 10px;
+	font-size: 24px;
+}

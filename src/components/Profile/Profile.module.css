@@ -1,0 +1,45 @@
+.content {
+	grid-area: c;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.item img {
+	width: 50vw;
+}
+
+.about {
+	background: rgba(255, 0, 0, 0.507);
+	display: grid;
+	grid-template-areas:
+		"b"
+		"np"
+		"p";
+	grid-template-rows: 1fr;
+}
+.about__bio {
+	grid-area: b;
+}
+.about__newpost {
+	background: rgb(98, 255, 213);
+	grid-area: np;
+}
+.about__post {
+	background: rgb(104, 255, 162);
+	grid-area: p;
+}
+
+.bio {
+	display: grid;
+	grid-template-areas: "ava dis";
+	grid-template-columns: 1fr 10fr;
+}
+.bio__ava {
+	grid-area: ava;
+}
+.bio__discription {
+	grid-area: dis;
+}
