@@ -1,0 +1,29 @@
+.content_d {
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+}
+.content_d a {
+	text-shadow: none;
+}
+
+.dialoges {
+	padding: 20px;
+}
+.dialoge {
+	padding: 20px 0px 0px 0px;
+	font-size: 30px;
+}
+.dialoge a.active {
+	font-size: 40px;
+	color: #fff;
+	text-shadow: 1px 3px 10px #000;
+	transition: all 0.3s ease;
+}
+
+.messages {
+	padding: 20px;
+}
+.message {
+	padding: 20px 0px 0px 0px;
+	font-size: 22px;
+}

@@ -6,14 +6,8 @@
 }
 .item {
 	margin: 15px 0px 0px 30px;
-	cursor: pointer;
-	text-shadow: 1px 3px 10px #000;
-	transition: all 0.3s ease;
 }
-.item:hover {
-	color: rgb(251, 120, 120);
-	text-shadow: 1px 4px 10px #000;
-}
+
 .item:last-child {
-	margin: 40px 0px 0px 30px;
+	margin: 40px 0px 15px 30px;
 }

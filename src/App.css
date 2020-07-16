@@ -39,6 +39,21 @@
 
 /* ============================= */
 
+a {
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+a:hover {
+	transition: all 0.3s ease;
+	color: #fff;
+	text-shadow: 1px 4px 10px #000;
+}
+a.active {
+	color: #fff;
+	text-shadow: 1px 3px 10px #000;
+}
 .wraper {
 	display: grid;
 	grid-template-areas:
@@ -47,4 +62,8 @@
 	grid-template-rows: auto 1fr;
 	grid-template-columns: 2fr 10fr;
 	/* grid-gap: 10px; */
+}
+.wraper-content {
+	background: rgb(143, 52, 177);
+	grid-area: c;
 }

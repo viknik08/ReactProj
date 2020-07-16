@@ -1,0 +1,20 @@
+.content_pi {
+	background: rgb(169, 135, 135);
+}
+.item {
+	background: rgb(254, 217, 217);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.item img {
+	width: 50vw;
+}
+.bio {
+	display: grid;
+	grid-template-columns: 1fr 10fr;
+}
+.bio__ava {
+}
+.bio__discription {
+}
