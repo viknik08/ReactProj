@@ -9,7 +9,7 @@ import Message from './Message/Message'
 const Dialoges = (props) => {
 
 	let dialogesElement = props.state.dialoge
-		.map(d => <DialogeMembars name={d.name} id={d.id} />
+		.map(d => <DialogeMembars name={d.name} id={d.id} pick={d.pick} />
 		)
 
 	let messageElement = props.state.message

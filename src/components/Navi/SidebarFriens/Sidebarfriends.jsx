@@ -6,7 +6,7 @@ import Friends from './Friends/Friends'
 const Sidebar = (props) => {
 
 	let sidebarElement = props.state.friends
-		.map(d => <Friends name={d.name} id={d.id} />
+		.map(d => <Friends name={d.name} id={d.id} pick={d.pick} />
 		)
 
 	return (

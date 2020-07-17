@@ -16,8 +16,8 @@
 	justify-content: start;
 }
 .memders_ava img {
-	width: 70px;
-	height: 60px;
+	width: 75px;
+	height: 70px;
 	border-radius: 50%;
 }
 .membars {
@@ -41,4 +41,5 @@
 	border-radius: 20px;
 	padding: 20px 0px 0px 0px;
 	font-size: 22px;
+	background: rgb(68, 139, 225);
 }
