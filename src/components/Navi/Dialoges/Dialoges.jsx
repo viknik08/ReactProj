@@ -5,26 +5,14 @@ import Message from './Message/Message'
 
 
 
-const Dialoges = () => {
-	let dialogesData = [
-		{ id: '1', name: 'Ura' },
-		{ id: '2', name: 'Valera' },
-		{ id: '3', name: 'Kostya' },
-		{ id: '4', name: 'Nikita' },
-		{ id: '5', name: 'Oleg' },
-	]
-	let messageData = [
-		{ id: '1', message: 'Hi' },
-		{ id: '2', message: 'Who are you?' },
-		{ id: '3', message: 'Yo?' },
-		{ id: '4', message: 'Fuck off' },
-	]
 
-	let dialogesElement = dialogesData.
-		map(d => <DialogeMembars name={d.name} id={d.id} />
+const Dialoges = (props) => {
+
+	let dialogesElement = props.state.dialoge
+		.map(d => <DialogeMembars name={d.name} id={d.id} />
 		)
 
-	let messageElement = messageData
+	let messageElement = props.state.message
 		.map(m => <Message message={m.message} id={m.id} />
 		)
 

@@ -9,11 +9,23 @@
 .dialoges {
 	padding: 20px;
 }
-.dialoge {
+
+.content_dialoge {
 	padding: 20px 0px 0px 0px;
+	display: flex;
+	justify-content: start;
+}
+.memders_ava img {
+	width: 70px;
+	height: 60px;
+	border-radius: 50%;
+}
+.membars {
+	padding: 10px 0px 0px 20px;
 	font-size: 30px;
 }
-.dialoge a.active {
+
+.membars a.active {
 	font-size: 40px;
 	color: #fff;
 	text-shadow: 1px 3px 10px #000;
@@ -23,7 +35,10 @@
 .messages {
 	padding: 20px;
 }
-.message {
+.message p {
+	width: 200px;
+	border: solid 1px #000;
+	border-radius: 20px;
 	padding: 20px 0px 0px 0px;
 	font-size: 22px;
 }

@@ -1,0 +1,33 @@
+.content_side {
+	padding: 0;
+}
+.friend {
+	display: flex;
+	justify-content: center;
+}
+.element {
+	padding: 0px;
+	display: flex;
+	justify-content: space-around;
+}
+.element a {
+	font-size: 25px;
+}
+.element a:hover {
+	color: #000;
+	text-shadow: none;
+}
+.element a.active_side {
+	font-size: 35px;
+}
+.element img {
+	margin: 30px 0px 0px 0px;
+	width: 100px;
+	border-radius: 50%;
+}
+.membars_side {
+}
+
+.friends_content {
+	text-align: center;
+}

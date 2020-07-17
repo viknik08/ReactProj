@@ -5,9 +5,9 @@
 	margin: 0px 0px 0px 0px;
 }
 .item {
-	margin: 15px 0px 0px 30px;
+	margin: 15px 0px 0px 60px;
 }
 
 .item:last-child {
-	margin: 40px 0px 15px 30px;
+	margin: 80px 0px 15px 30px;
 }
