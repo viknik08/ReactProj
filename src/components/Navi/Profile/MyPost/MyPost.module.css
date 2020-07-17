@@ -2,8 +2,12 @@
 	background: rgb(111, 66, 66);
 }
 .newpost__title {
+	padding: 20px 0px 0px 30px;
+	font-size: 40px;
 }
 .newpost__input {
+	padding: 20px 0px 0px 30px;
 }
 .newpost__btn {
+	padding: 20px 0px 20px 30px;
 }

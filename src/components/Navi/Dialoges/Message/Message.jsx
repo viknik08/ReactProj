@@ -3,8 +3,12 @@ import s from '../Dialoges.module.css'
 
 
 const Message = (props) => {
-	return <div className={s.message}><p>{props.message}</p>  </div>
 
+	return (
+		<div>
+			<div className={s.message}><p>{props.message}</p>  </div>
+		</div>
+	)
 }
 
 

@@ -1,22 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { rerenderEntereTree } from './render'
 import state from './Redux/State'
-import { BrowserRouter } from 'react-router-dom'
 
-
-ReactDOM.render(
-	<React.StrictMode>
-		<BrowserRouter>
-			<App state={state} />
-		</BrowserRouter>
-	</React.StrictMode>,
-	document.getElementById('root')
-);
-
-
+rerenderEntereTree(state)
 
 
 // If you want your app to work offline and load faster, you can change

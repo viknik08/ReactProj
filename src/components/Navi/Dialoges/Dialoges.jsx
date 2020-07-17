@@ -16,6 +16,15 @@ const Dialoges = (props) => {
 		.map(m => <Message message={m.message} id={m.id} />
 		)
 
+	let messageSand = React.createRef()
+	let sandMessage = () => {
+		props.sand()
+	}
+	let onMsgChange = () => {
+		let text = messageSand.current.value
+		props.updateMsg(text)
+	}
+
 	return (
 
 		<div className={s.content_d}>
@@ -26,6 +35,8 @@ const Dialoges = (props) => {
 
 			<div className={s.messages}>
 				{messageElement}
+				<div><textarea onChange={onMsgChange} ref={messageSand} value={props.state.newTextMsg} /></div>
+				<div><button onClick={sandMessage}>send</button></div>
 			</div>
 
 		</div>

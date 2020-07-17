@@ -1,4 +1,4 @@
-
+import { rerenderEntereTree } from '../render'
 
 let state = {
 
@@ -8,6 +8,7 @@ let state = {
 			{ id: '2', message: 'Yeah, man! I miss you nigga', likeCount: '12' },
 			{ id: '3', message: 'Fuck off', likeCount: '9' },
 		],
+		newTextPost: '',
 	},
 
 	dialogePage: {
@@ -29,10 +30,40 @@ let state = {
 			{ id: '3', message: 'Yo?' },
 			{ id: '4', message: 'Fuck off' },
 		],
+		newTextMsg: '',
 	},
+}
 
 
+export let addPost = () => {
+	let newPost = {
+		id: 5,
+		message: state.profilePage.newTextPost,
+		likeCount: 0,
+	}
+	state.profilePage.post.push(newPost)
+	state.profilePage.newTextPost = ''
+	rerenderEntereTree(state)
 
+}
+export let sandMsg = () => {
+	let newMsg = {
+		id: 5,
+		message: state.dialogePage.newTextMsg,
+		likeCount: 0,
+	}
+	state.dialogePage.message.push(newMsg)
+	state.dialogePage.newTextMsg = ''
+	rerenderEntereTree(state)
+
+}
+export let updateNewTextPost = (newText) => {
+	state.profilePage.newTextPost = newText
+	rerenderEntereTree(state)
+}
+export let updateNewTextMessage = (newText) => {
+	state.dialogePage.newTextMsg = newText
+	rerenderEntereTree(state)
 }
 
 export default state 
