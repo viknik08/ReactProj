@@ -12,11 +12,11 @@ const MyPost = (props) => {
 
 	let newPostElement = React.createRef()
 	let addPost = () => {
-		props.addPost()
+		props.dispatch({ type: 'ADD-POST' })
 	}
 	let onPostChange = () => {
 		let text = newPostElement.current.value
-		props.update(text)
+		props.dispatch({ type: 'UPDATE-NEW-TEXT-POST', newText: text })
 	}
 
 	return (
@@ -31,6 +31,7 @@ const MyPost = (props) => {
 			<div className={s.newpost__btn}>
 				<button onClick={addPost} >add post</button>
 			</div>
+
 
 			{postElement}
 

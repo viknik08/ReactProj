@@ -11,3 +11,12 @@
 .newpost__btn {
 	padding: 20px 0px 20px 30px;
 }
+/* .newpost__star {
+	cursor: pointer;
+	width: 100px;
+	height: 100px;
+	margin: 2px;
+	float: left;
+	background: rgb(98, 98, 98);
+	clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
+} */

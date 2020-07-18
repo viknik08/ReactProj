@@ -18,11 +18,11 @@ const Dialoges = (props) => {
 
 	let messageSand = React.createRef()
 	let sandMessage = () => {
-		props.sand()
+		props.dispatchMsg({ type: 'SEND-MSG' })
 	}
 	let onMsgChange = () => {
 		let text = messageSand.current.value
-		props.updateMsg(text)
+		props.dispatchMsg({ type: 'UPDATE-NEW-TEXT-MESSAGE', newText: text })
 	}
 
 	return (
