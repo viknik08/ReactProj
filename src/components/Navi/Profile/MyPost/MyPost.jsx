@@ -1,22 +1,23 @@
 import React from 'react';
 import Post from '../Post/Post'
 import s from './MyPost.module.css'
+import { addPostActionCreator, updateNewTextPostActionCreator } from '../../../../Redux/State'
 
 
 
 const MyPost = (props) => {
-
+	//отрисовка из общего массива с постами 
 	let postElement = props.state.post
 		.map(p => <Post message={p.message} likeCount={p.likeCount} />
 		)
-
+	// функции для послания постов и взаимодействия их с BLL
 	let newPostElement = React.createRef()
 	let addPost = () => {
-		props.dispatch({ type: 'ADD-POST' })
+		props.dispatch(addPostActionCreator())
 	}
 	let onPostChange = () => {
 		let text = newPostElement.current.value
-		props.dispatch({ type: 'UPDATE-NEW-TEXT-POST', newText: text })
+		props.dispatch(updateNewTextPostActionCreator(text))
 	}
 
 	return (
