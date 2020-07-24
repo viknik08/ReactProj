@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialoges.module.css'
 import DialogeMembars from './Dialoge/DialogeMembars'
 import Message from './Message/Message'
-import { sendMsgActionCreator, updateNewTextMessageActionCreator } from '../../../Redux/State'
+import { sendMsgActionCreator, updateNewTextMessageActionCreator } from '../../../Redux/dialogReducer'
 
 
 
@@ -18,13 +18,12 @@ const Dialoges = (props) => {
 		)
 
 	// функции для отправки сообщений и взаимодейстивя с BLL
-	let messageSand = React.createRef()
 	let sandMessage = () => {
-		props.dispatchMsg(sendMsgActionCreator())
+		props.dispatch(sendMsgActionCreator())
 	}
-	let onMsgChange = () => {
-		let text = messageSand.current.value
-		props.dispatchMsg(updateNewTextMessageActionCreator(text))
+	let onMsgChange = (e) => {
+		let text = e.target.value
+		props.dispatch(updateNewTextMessageActionCreator(text))
 	}
 
 	return (
@@ -37,7 +36,7 @@ const Dialoges = (props) => {
 
 			<div className={s.messages}>
 				{messageElement}
-				<div><textarea onChange={onMsgChange} ref={messageSand} value={props.state.newTextMsg} /></div>
+				<div><textarea onChange={onMsgChange} value={props.state.newTextMsg} /></div>
 				<div><button onClick={sandMessage}>send</button></div>
 			</div>
 
