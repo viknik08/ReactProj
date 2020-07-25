@@ -9,11 +9,11 @@ import Message from './Message/Message'
 const Dialoges = (props) => {
 
 	// отрисока из массива с именами
-	let dialogesElement = props.dialogePage.dialoge
+	let dialogesElement = props.dialoge
 		.map(d => <DialogeMembars name={d.name} id={d.id} pick={d.pick} />
 		)
 	// отрисока из массива с сообщениями
-	let messageElement = props.dialogePage.message
+	let messageElement = props.message
 		.map(m => <Message message={m.message} id={m.id} />
 		)
 	// функции для отправки сообщений и взаимодейстивя с BLL
@@ -35,7 +35,7 @@ const Dialoges = (props) => {
 
 			<div className={s.messages}>
 				{messageElement}
-				<div><textarea onChange={onMsgChange} value={props.dialogePage.newTextMsg} /></div>
+				<div><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
 				<div><button onClick={OnSandMessage}>send</button></div>
 			</div>
 
