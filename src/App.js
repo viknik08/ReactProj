@@ -5,7 +5,6 @@ import './App.css';
 import Header from './components/Heder/Header'
 import Navi from './components/Navi/Navi';
 import Profile from './components/Navi/Profile/Profile';
-import Dialoges from './components/Navi/Dialoges/Dialoges'
 import Music from './components/Navi/Music/Music'
 import News from './components/Navi/News/News'
 import Settings from './components/Navi/Settings/Settings'
@@ -15,7 +14,7 @@ const App = (props) => {
 	return (
 		<div className="wraper">
 			<Header />
-			<Navi state={props.state.dialogePage} />
+			<Navi />
 			<div className="wraper-content">
 				<Route path='/dialoge' render={() => <DialogesContainer store={props.store} />} />
 				<Route path='/profile' render={() => <Profile store={props.store} />} />

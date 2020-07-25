@@ -6,7 +6,7 @@ import s from './MyPost.module.css'
 
 const MyPost = (props) => {
 	//отрисовка из общего массива с постами 
-	let postElement = props.state.post
+	let postElement = props.post
 		.map(p => <Post message={p.message} likeCount={p.likeCount} />
 		)
 	// функции для послания постов и взаимодействия их с MyPostContainer
@@ -25,7 +25,7 @@ const MyPost = (props) => {
 				My Post
 			</div>
 			<div className={s.newpost__input}>
-				<textarea onChange={onPostChange} value={props.state.newTextPost} />
+				<textarea onChange={onPostChange} value={props.newTextPost} />
 			</div>
 			<div className={s.newpost__btn}>
 				<button onClick={onAddPost} >add post</button>

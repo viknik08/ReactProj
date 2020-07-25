@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import App from './App';
@@ -10,7 +11,9 @@ let rerenderEntereTree = (state) => {
 	ReactDOM.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App store={store} state={state} />
+				<Provider store={store} >
+					<App />
+				</Provider >
 			</BrowserRouter>
 		</React.StrictMode>,
 		document.getElementById('root')
