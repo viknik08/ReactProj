@@ -9,6 +9,7 @@ import Dialoges from './components/Navi/Dialoges/Dialoges'
 import Music from './components/Navi/Music/Music'
 import News from './components/Navi/News/News'
 import Settings from './components/Navi/Settings/Settings'
+import DialogesContainer from './components/Navi/Dialoges/DialogesContainer';
 
 const App = (props) => {
 	return (
@@ -16,8 +17,8 @@ const App = (props) => {
 			<Header />
 			<Navi state={props.state.dialogePage} />
 			<div className="wraper-content">
-				<Route path='/dialoge' render={() => <Dialoges state={props.state.dialogePage} dispatch={props.dispatch} />} />
-				<Route path='/profile' render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch} />} />
+				<Route path='/dialoge' render={() => <DialogesContainer store={props.store} />} />
+				<Route path='/profile' render={() => <Profile store={props.store} />} />
 				<Route path='/music' render={() => <Music />} />
 				<Route path='/news' render={() => <News />} />
 				<Route path='/settings' render={() => <Settings />} />

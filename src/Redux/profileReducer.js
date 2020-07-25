@@ -1,7 +1,17 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_TEXT_POST = 'UPDATE-NEW-TEXT-POST'
 
-const profileReducer = (state, action) => {
+// дефолтные значения для profilePage
+let initState = {
+	post: [
+		{ id: '1', message: 'Hi, who are you?', likeCount: '10' },
+		{ id: '2', message: 'Yeah, man! I miss you nigga', likeCount: '12' },
+		{ id: '3', message: 'Fuck off', likeCount: '9' },
+	],
+	newTextPost: '',
+}
+
+const profileReducer = (state = initState, action) => {
 	switch (action.type) {
 		case ADD_POST:
 			let newPost = state.newTextPost
@@ -15,10 +25,6 @@ const profileReducer = (state, action) => {
 			return state
 	}
 }
-
-
-
-
 
 
 // функции для actiona постов
