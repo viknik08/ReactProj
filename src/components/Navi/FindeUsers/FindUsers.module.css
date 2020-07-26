@@ -1,0 +1,31 @@
+.container_find {
+	padding: 20px;
+}
+.users {
+	padding: 0px 0px 40px 0px;
+}
+.about_find {
+	display: flex;
+	align-items: center;
+}
+.avabtn {
+	text-align: center;
+	margin: 0px 20px 0px 0px;
+}
+.avabtn img {
+	margin: 0px 0px 10px 0px;
+	border-radius: 50%;
+	width: 100px;
+}
+.profile_user {
+	font-size: 20px;
+	padding: 0px 10px;
+	border-radius: 10px;
+	background: rgb(255, 119, 119);
+	display: flex;
+	justify-content: space-between;
+	width: 30%;
+}
+.location {
+	text-align: right;
+}

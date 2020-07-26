@@ -9,6 +9,7 @@ import Music from './components/Navi/Music/Music'
 import News from './components/Navi/News/News'
 import Settings from './components/Navi/Settings/Settings'
 import DialogesContainer from './components/Navi/Dialoges/DialogesContainer';
+import FindUsersContainer from './components/Navi/FindeUsers/FindUsersContainer';
 
 const App = (props) => {
 	return (
@@ -21,6 +22,7 @@ const App = (props) => {
 				<Route path='/music' render={() => <Music />} />
 				<Route path='/news' render={() => <News />} />
 				<Route path='/settings' render={() => <Settings />} />
+				<Route path='/users' render={() => <FindUsersContainer />} />
 
 			</div>
 		</div>
