@@ -29,3 +29,10 @@
 .location {
 	text-align: right;
 }
+.selectedPages {
+	font-weight: 700;
+	font-size: 25px;
+}
+span {
+	cursor: pointer;
+}
