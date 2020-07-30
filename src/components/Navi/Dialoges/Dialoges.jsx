@@ -18,11 +18,11 @@ const Dialoges = (props) => {
 		)
 	// функции для отправки сообщений и взаимодейстивя с BLL
 	let OnSandMessage = () => {
-		props.sandMsg()
+		props.sendMsg()
 	}
 	let onMsgChange = (e) => {
 		let text = e.target.value
-		props.updateMsgText(text)
+		props.updateNewTextMessage(text)
 	}
 
 	return (

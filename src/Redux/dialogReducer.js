@@ -45,8 +45,8 @@ const dialogeReducer = (state = initState, action) => {
 
 
 // функции для actiona сообщений
-export const sendMsgActionCreator = () => ({ type: SEND_MSG })
-export const updateNewTextMessageActionCreator = (text) =>
+export const sendMsg = () => ({ type: SEND_MSG })
+export const updateNewTextMessage = (text) =>
 	({ type: UPDATE_NEW_TEXT_MESSAGE, msgText: text, })
 
 export default dialogeReducer
