@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_TEXT_POST = 'UPDATE-NEW-TEXT-POST'
+const SET_USER_PROFILE = 'SET-USER-PROFILE'
 
 // дефолтные значения для profilePage
 let initState = {
@@ -9,6 +10,7 @@ let initState = {
 		{ id: '3', message: 'Fuck off', likeCount: '9' },
 	],
 	newTextPost: '',
+	profile: null,
 }
 
 const profileReducer = (state = initState, action) => {
@@ -26,6 +28,11 @@ const profileReducer = (state = initState, action) => {
 				...state,
 				newTextPost: action.postText,
 			}
+		case SET_USER_PROFILE:
+			return {
+				...state,
+				profile: action.profile,
+			}
 		default:
 			return state
 	}
@@ -34,8 +41,8 @@ const profileReducer = (state = initState, action) => {
 
 // функции для actiona постов
 export const addPost = () => ({ type: ADD_POST })
-export const updateNewTextPost = (text) =>
-	({ type: UPDATE_NEW_TEXT_POST, postText: text, })
+export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_TEXT_POST, text, })
+export const setUsersProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 
 export default profileReducer

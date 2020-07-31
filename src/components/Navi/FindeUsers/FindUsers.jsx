@@ -1,6 +1,7 @@
 import React from 'react'
 import s from './FindUsers.module.css'
 import userPhoto from '../../../assetc/img/user.png'
+import { NavLink } from 'react-router-dom'
 
 
 const FindUsers = (props) => {
@@ -26,7 +27,9 @@ const FindUsers = (props) => {
 					<div className={s.about_find}>
 						<div className={s.avabtn}>
 							<div>
-								<img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
+								<NavLink to={'/profile/' + u.id}>
+									<img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
+								</NavLink>
 							</div>
 							<div>
 								{u.followed

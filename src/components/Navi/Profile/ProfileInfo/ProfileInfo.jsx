@@ -1,8 +1,12 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
+import Preloader from '../../../common/preloader/preloader';
 
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+	if (!props.profile) {
+		return <Preloader />
+	}
 	return (
 		<div className={s.content_pi}>
 			<div className={s.item}>
@@ -12,11 +16,13 @@ const ProfileInfo = () => {
 			<div className={s.about}>
 				<div className={`${s.about__bio} ${s.bio}`}>
 					<div className={s.bio__ava}>
+						<img src={props.profile.photos.large} />
 						ava
 					</div>
 
 					<div className={s.bio__discription}>
-						info
+						<p>{props.profile.aboutMe}</p>
+
 					</div>
 				</div>
 			</div>

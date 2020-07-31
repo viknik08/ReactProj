@@ -4,7 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Heder/Header'
 import Navi from './components/Navi/Navi';
-import Profile from './components/Navi/Profile/Profile';
+import ProfileContainer from './components/Navi/Profile/ProfileContainer';
 import Music from './components/Navi/Music/Music'
 import News from './components/Navi/News/News'
 import Settings from './components/Navi/Settings/Settings'
@@ -18,7 +18,7 @@ const App = (props) => {
 			<Navi />
 			<div className="wraper-content">
 				<Route path='/dialoge' render={() => <DialogesContainer />} />
-				<Route path='/profile' render={() => <Profile />} />
+				<Route path='/profile' render={() => <ProfileContainer />} />
 				<Route path='/music' render={() => <Music />} />
 				<Route path='/news' render={() => <News />} />
 				<Route path='/settings' render={() => <Settings />} />
