@@ -18,7 +18,7 @@ const App = (props) => {
 			<Navi />
 			<div className="wraper-content">
 				<Route path='/dialoge' render={() => <DialogesContainer />} />
-				<Route path='/profile' render={() => <ProfileContainer />} />
+				<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
 				<Route path='/music' render={() => <Music />} />
 				<Route path='/news' render={() => <News />} />
 				<Route path='/settings' render={() => <Settings />} />

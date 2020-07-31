@@ -17,7 +17,6 @@ const ProfileInfo = (props) => {
 				<div className={`${s.about__bio} ${s.bio}`}>
 					<div className={s.bio__ava}>
 						<img src={props.profile.photos.large} />
-						ava
 					</div>
 
 					<div className={s.bio__discription}>
