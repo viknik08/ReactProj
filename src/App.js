@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-import Header from './components/Heder/Header'
+import HeaderContainer from './components/Heder/HeaderContainer'
 import Navi from './components/Navi/Navi';
 import ProfileContainer from './components/Navi/Profile/ProfileContainer';
 import Music from './components/Navi/Music/Music'
@@ -14,7 +14,7 @@ import FindUsersContainer from './components/Navi/FindeUsers/FindUsersContainer'
 const App = (props) => {
 	return (
 		<div className="wraper">
-			<Header />
+			<HeaderContainer />
 			<Navi />
 			<div className="wraper-content">
 				<Route path='/dialoge' render={() => <DialogesContainer />} />
