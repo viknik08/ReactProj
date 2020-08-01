@@ -10,16 +10,7 @@ let mapStateToProps = (state) => {
 		newTextPost: state.profilePage.newTextPost
 	}
 }
-// let mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		addPost: () => {
-// 			dispatch(ActionCreator())
-// 		},
-// 		updateNewTextPost: (text) => {
-// 			dispatch(ActionCreator(text))
-// 		}
-// 	}
-// }
+
 
 export default connect(mapStateToProps, { updateNewTextPost, addPost })(MyPost)
 
