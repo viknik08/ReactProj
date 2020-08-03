@@ -2,7 +2,6 @@ import React from 'react'
 import s from './FindUsers.module.css'
 import userPhoto from '../../../assetc/img/user.png'
 import { NavLink } from 'react-router-dom'
-import { deleteUsers, postUsers } from '../../../API/api'
 
 
 const FindUsers = (props) => {
@@ -35,22 +34,10 @@ const FindUsers = (props) => {
 							<div>
 								{u.followed
 									? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-										props.toggleFollowingProgress(true, u.id)
-										deleteUsers(u.id).then(data => {
-											if (data.resultCode == 0) {
-												props.unfollow(u.id)
-											}
-											props.toggleFollowingProgress(false, u.id)
-										})
+										props.unfollowThunkCreator(u.id)
 									}} >unfollow</button>
 									: <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-										props.toggleFollowingProgress(true, u.id)
-										postUsers(u.id).then(data => {
-											if (data.resultCode == 0) {
-												props.follow(u.id)
-											}
-											props.toggleFollowingProgress(false, u.id)
-										})
+										props.followThunkCreator(u.id)
 									}}>follow</button>}
 
 							</div>

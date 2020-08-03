@@ -1,3 +1,5 @@
+import { userAPI } from '../API/api'
+
 const SET_USER_DATA = 'SET_USER_DATA'
 
 // дефолтные значения для dialogePage
@@ -27,5 +29,16 @@ const authReducer = (state = initState, action) => {
 // функции для actiona сообщений
 export const setAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, data: { userId, login, email } })
 
+// санки для header 
+export const setAuthThunkCreator = () => {
+	return (dispatch) => {
+		userAPI.authUsers().then(data => {
+			if (data.resultCode == 0) {
+				let { id, login, email } = data.data
+				dispatch(setAuthUserData(id, login, email))
+			}
+		})
+	}
+}
 
 export default authReducer

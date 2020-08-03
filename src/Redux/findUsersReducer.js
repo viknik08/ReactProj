@@ -1,3 +1,5 @@
+import { userAPI } from '../API/api'
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
@@ -82,6 +84,44 @@ export const setCurrentPage = (currentPage) => ({ type: SET_CURRENT_PAGE, curren
 export const setUsersTotalCount = (totalUserCount) => ({ type: SET_TOTAL_COUNT, totalUserCount })
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching })
 export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId })
+
+// криетор санок для axios в findeusercontainer запросов
+export const getUserThunkCreator = (currentPage, pageSize) => {
+	return (dispatch) => {
+		dispatch(setCurrentPage(currentPage))
+		dispatch(toggleIsFetching(true))
+		userAPI.getUsers(currentPage, pageSize).then(data => {
+			dispatch(toggleIsFetching(false))
+			dispatch(setUsers(data.items))
+			dispatch(setUsersTotalCount(data.totalCount))
+		})
+	}
+}
+// санки для follow/unfollow
+export const followThunkCreator = (id) => {
+	return (dispatch) => {
+		dispatch(toggleFollowingProgress(true, id))
+		userAPI.postUsers(id).then(data => {
+			if (data.resultCode == 0) {
+				dispatch(follow(id))
+			}
+			dispatch(toggleFollowingProgress(false, id))
+		})
+	}
+}
+export const unfollowThunkCreator = (id) => {
+	return (dispatch) => {
+		dispatch(toggleFollowingProgress(true, id))
+		userAPI.deleteUsers(id).then(data => {
+			if (data.resultCode == 0) {
+				dispatch(unfollow(id))
+			}
+			dispatch(toggleFollowingProgress(false, id))
+		})
+	}
+}
+
+
 
 
 export default findUsersReducer

@@ -1,9 +1,8 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { setUsersProfile } from '../../../Redux/profileReducer'
+import { setProfileThunkCreator } from '../../../Redux/profileReducer'
 import { withRouter } from 'react-router-dom';
-import { profileUsers } from '../../../API/api';
 
 
 
@@ -13,9 +12,7 @@ class ProfileContainer extends React.Component {
 		if (!userId) {
 			userId = 3
 		}
-		profileUsers(userId).then(data => {
-			this.props.setUsersProfile(data)
-		})
+		this.props.setProfileThunkCreator(userId)
 	}
 	render() {
 		return (
@@ -30,4 +27,4 @@ let mapStateToProps = (state) => ({
 })
 // wthRouter для добавления парапетров в пропсы из url
 let whithUserDataUrlComponent = withRouter(ProfileContainer)
-export default connect(mapStateToProps, { setUsersProfile })(whithUserDataUrlComponent)
+export default connect(mapStateToProps, { setProfileThunkCreator })(whithUserDataUrlComponent)

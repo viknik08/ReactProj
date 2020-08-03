@@ -1,30 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleIsFetching, toggleFollowingProgress } from '../../../Redux/findUsersReducer'
+import { followThunkCreator, unfollowThunkCreator, getUserThunkCreator } from '../../../Redux/findUsersReducer'
 import FindUsers from './FindUsers'
 import Preloader from '../../common/preloader/preloader'
-import { getUsers } from '../../../API/api'
 
 
 
 class FindUsersAPI extends React.Component {
 
 	componentDidMount() {
-		this.props.toggleIsFetching(true)
-		getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-			this.props.toggleIsFetching(false)
-			this.props.setUsers(data.items)
-			this.props.setUsersTotalCount(data.totalCount)
-		})
+		this.props.getUserThunkCreator(this.props.currentPage, this.props.pageSize)
 	}
 
 	onPageChange = (pageNumber) => {
-		this.props.setCurrentPage(pageNumber)
-		this.props.toggleIsFetching(true)
-		getUsers(pageNumber, this.props.pageSize,).then(data => {
-			this.props.toggleIsFetching(false)
-			this.props.setUsers(data.items)
-		})
+		this.props.getUserThunkCreator(pageNumber, this.props.pageSize)
 	}
 
 
@@ -35,11 +24,10 @@ class FindUsersAPI extends React.Component {
 				pageSize={this.props.pageSize}
 				currentPage={this.props.currentPage}
 				onPageChange={this.onPageChange}
-				unfollow={this.props.unfollow}
-				follow={this.props.follow}
+				unfollowThunkCreator={this.props.unfollowThunkCreator}
+				followThunkCreator={this.props.followThunkCreator}
 				users={this.props.users}
-				followingInProgress={this.props.followingInProgress}
-				toggleFollowingProgress={this.props.toggleFollowingProgress} />
+				followingInProgress={this.props.followingInProgress} />
 		</>
 		)
 	}
@@ -58,6 +46,6 @@ let mapStateToProps = (state) => {
 	}
 }
 // диспатчи теперь здесь 
-export default connect(mapStateToProps, { follow, unfollow, setUsers, setCurrentPage, setUsersTotalCount, toggleIsFetching, toggleFollowingProgress })(FindUsersAPI)
+export default connect(mapStateToProps, { followThunkCreator, unfollowThunkCreator, getUserThunkCreator })(FindUsersAPI)
 
 
