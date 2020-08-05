@@ -1,8 +1,6 @@
 .content_pi {
-	background: rgb(169, 135, 135);
 }
 .item {
-	background: rgb(254, 217, 217);
 	display: flex;
 	align-items: center;
 	justify-content: center;

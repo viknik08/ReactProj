@@ -77,7 +77,7 @@ p:after {
 .from_me:after {
 	right: -56px;
 	width: 26px;
-	background: rgb(143, 52, 177);
+	background: rgb(54, 89, 135);
 	border-bottom-left-radius: 10px;
 	transform: translate(-30px, -2px);
 }
@@ -96,7 +96,7 @@ p:after {
 .from_them:after {
 	left: 4px;
 	width: 26px;
-	background: rgb(143, 52, 177);
+	background: rgb(54, 89, 135);
 	border-bottom-right-radius: 10px;
 	transform: translate(-30px, -2px);
 }
@@ -130,7 +130,7 @@ p:after {
 .message__p::after {
 	right: -56px;
 	width: 26px;
-	background: rgb(143, 52, 177);
+	background: rgb(54, 89, 135);
 	border-bottom-left-radius: 10px;
 	transform: translate(-30px, -2px);
 }
