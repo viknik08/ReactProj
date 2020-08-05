@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialoges.module.css'
 import DialogeMembars from './Dialoge/DialogeMembars'
 import Message from './Message/Message'
+import MessageCopy from './Message/MessageCopy'
 
 
 
@@ -16,6 +17,7 @@ const Dialoges = (props) => {
 	let messageElement = props.message
 		.map(m => <Message message={m.message} id={m.id} />
 		)
+
 	// функции для отправки сообщений и взаимодейстивя с BLL
 	let OnSandMessage = () => {
 		props.sendMsg()
@@ -24,6 +26,7 @@ const Dialoges = (props) => {
 		let text = e.target.value
 		props.updateNewTextMessage(text)
 	}
+
 
 	return (
 
@@ -34,9 +37,10 @@ const Dialoges = (props) => {
 			</div>
 
 			<div className={s.messages}>
+				< MessageCopy />
 				{messageElement}
-				<div><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
-				<div><button onClick={OnSandMessage}>send</button></div>
+				<div className={s.input_text}><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
+				<divc className={s.input_btn}><button onClick={OnSandMessage}>send</button></divc>
 			</div>
 
 		</div>

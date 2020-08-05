@@ -15,6 +15,12 @@
 	grid-template-columns: 1fr 10fr;
 }
 .bio__ava {
+	padding: 20px;
+}
+.bio__ava img {
+	width: 200px;
+	border-radius: 50%;
 }
 .bio__discription {
+	padding: 20px 0px 0px 10px;
 }

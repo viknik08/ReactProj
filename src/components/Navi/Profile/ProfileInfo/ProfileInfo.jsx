@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
 import Preloader from '../../../common/preloader/preloader';
+import userPhoto from '../../../../assetc/img/user.png'
+
 
 
 const ProfileInfo = (props) => {
@@ -16,11 +18,14 @@ const ProfileInfo = (props) => {
 			<div className={s.about}>
 				<div className={`${s.about__bio} ${s.bio}`}>
 					<div className={s.bio__ava}>
-						<img src={props.profile.photos.large} />
+						<img src={props.profile.photos.large != null ? props.profile.photos.large : userPhoto} alt="" />
 					</div>
 
 					<div className={s.bio__discription}>
-						<p>{props.profile.aboutMe}</p>
+						<p>Status: {props.profile.aboutMe}</p>
+						<p>Name: {props.profile.fullName}</p>
+						<p>Facebook: {props.profile.contacts.facebook}</p>
+						<p>{props.profile.lookingForAJobDescription}</p>
 
 					</div>
 				</div>

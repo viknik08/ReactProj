@@ -4,7 +4,6 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPostConteiner from './MyPost/MyPostContainer';
 
 const Profile = (props) => {
-
 	return (
 		<div className={s.content_p}>
 			<ProfileInfo profile={props.profile} />

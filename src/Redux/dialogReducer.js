@@ -16,10 +16,6 @@ let initState = {
 
 	],
 	message: [
-		{ id: '1', message: 'Hi' },
-		{ id: '2', message: 'Who are you?' },
-		{ id: '3', message: 'Yo?' },
-		{ id: '4', message: 'Fuck off' },
 	],
 	newTextMsg: '',
 }

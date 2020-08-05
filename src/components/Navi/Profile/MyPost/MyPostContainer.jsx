@@ -11,7 +11,6 @@ let mapStateToProps = (state) => {
 	}
 }
 
-
 export default connect(mapStateToProps, { updateNewTextPost, addPost })(MyPost)
 
 

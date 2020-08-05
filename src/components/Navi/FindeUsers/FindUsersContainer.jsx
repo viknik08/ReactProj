@@ -6,7 +6,7 @@ import Preloader from '../../common/preloader/preloader'
 
 
 
-class FindUsersAPI extends React.Component {
+class FindUsersContainer extends React.Component {
 
 	componentDidMount() {
 		this.props.getUserThunkCreator(this.props.currentPage, this.props.pageSize)
@@ -46,6 +46,6 @@ let mapStateToProps = (state) => {
 	}
 }
 // диспатчи теперь здесь 
-export default connect(mapStateToProps, { followThunkCreator, unfollowThunkCreator, getUserThunkCreator })(FindUsersAPI)
+export default connect(mapStateToProps, { followThunkCreator, unfollowThunkCreator, getUserThunkCreator })(FindUsersContainer)
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux';
 import { setAuthThunkCreator } from '../../Redux/authReducer'
-import { userAPI } from '../../API/api';
 
 class HeaderContainer extends React.Component {
 

@@ -22,13 +22,13 @@ const profileReducer = (state = initState, action) => {
 			return {
 				...state,
 				newTextPost: '',
-				post: [...state.post, { id: 5, message: newPost, likeCount: 0, }],
+				post: [...state.post, { id: 4, message: newPost, likeCount: 0, }],
 			}
 
 		case UPDATE_NEW_TEXT_POST:
 			return {
 				...state,
-				newTextPost: action.postText,
+				newTextPost: action.text,
 			}
 		case SET_USER_PROFILE:
 			return {
@@ -43,7 +43,7 @@ const profileReducer = (state = initState, action) => {
 
 // функции для actiona постов
 export const addPost = () => ({ type: ADD_POST })
-export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_TEXT_POST, text, })
+export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_TEXT_POST, text })
 export const setUsersProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 
 // санки для profile
