@@ -1,7 +1,15 @@
 import { Redirect } from 'react-router-dom'
 import React from 'react';
+import { connect } from 'react-redux'
 
 
+// инфа из store
+let mapStateForRedirect = (state) => {
+	return {
+		isAuth: state.auth.isAuth
+	}
+}
+// готовый hoc для auth
 export const withAuthRedirect = (Component) => {
 	class RedirectComponent extends React.Component {
 		render() {
@@ -9,6 +17,9 @@ export const withAuthRedirect = (Component) => {
 			return <Component {...this.props} />
 		}
 	}
-	return RedirectComponent
+	// connect для прокидывания инфы из store
+	return connect(mapStateForRedirect)(RedirectComponent)
+
+
 }
 

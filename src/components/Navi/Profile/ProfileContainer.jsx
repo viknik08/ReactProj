@@ -30,8 +30,8 @@ let authRedirectComponent = withAuthRedirect(ProfileContainer)
 // инфа из store
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
-	isAuth: state.auth.isAuth
 })
+
 // wthRouter для добавления параметров в пропсы из url
 let whithUserDataUrlComponent = withRouter(authRedirectComponent)
 export default connect(mapStateToProps, { setProfileThunkCreator })(whithUserDataUrlComponent)
