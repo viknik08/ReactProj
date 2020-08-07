@@ -3,7 +3,7 @@ import { sendMsg, updateNewTextMessage } from '../../../Redux/dialogReducer'
 import Dialoges from './Dialoges'
 import { connect } from 'react-redux'
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect'
-import { compose } from 'redux';
+import { compose } from 'redux'
 
 // инфа из store
 let mapStateToProps = (state) => {
