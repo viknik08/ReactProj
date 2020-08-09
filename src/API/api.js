@@ -30,15 +30,35 @@ export const userAPI = {
 				return response.data
 			})
 	},
+
+}
+export const authAPI = {
 	// axios запросы для headercontainer для логина
 	authUsers() {
 		return instance.get(`auth/me`)
 			.then(response => {
 				return response.data
 			})
-	},// axios запросы для profilecontainer
+	},
+}
+export const profileAPI = {
+	// axios запросы для profilecontainer
 	profileUsers(userId) {
 		return instance.get(`profile/` + userId)
+			.then(response => {
+				return response.data
+			})
+	},
+	// axios запросы для статуса
+	profileStatus(userId) {
+		return instance.get(`profile/status/` + userId)
+			.then(response => {
+				return response.data
+			})
+	},
+	// axios запросы для статуса
+	updateStatus(status) {
+		return instance.put(`profile/status`, { status: status })
 			.then(response => {
 				return response.data
 			})

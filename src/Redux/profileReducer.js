@@ -1,8 +1,9 @@
-import { userAPI } from '../API/api'
+import { profileAPI } from '../API/api'
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_NEW_TEXT_POST = 'UPDATE-NEW-TEXT-POST'
 const SET_USER_PROFILE = 'SET-USER-PROFILE'
+const SET_USER_STATUS = 'SET-USER-STATUS'
 
 // дефолтные значения для profilePage
 let initState = {
@@ -13,6 +14,7 @@ let initState = {
 	],
 	newTextPost: '',
 	profile: null,
+	status: ''
 }
 
 const profileReducer = (state = initState, action) => {
@@ -35,6 +37,11 @@ const profileReducer = (state = initState, action) => {
 				...state,
 				profile: action.profile,
 			}
+		case SET_USER_STATUS:
+			return {
+				...state,
+				status: action.status,
+			}
 		default:
 			return state
 	}
@@ -45,14 +52,34 @@ const profileReducer = (state = initState, action) => {
 export const addPost = () => ({ type: ADD_POST })
 export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_TEXT_POST, text })
 export const setUsersProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
+export const setUsersStatus = (status) => ({ type: SET_USER_STATUS, status })
 
 // санки для profile
 export const setProfileThunkCreator = (userId) => {
 	return (dispatch) => {
-		userAPI.profileUsers(userId).then(data => {
+		profileAPI.profileUsers(userId).then(data => {
 			dispatch(setUsersProfile(data))
 		})
 	}
 }
+// санки для получения status
+export const setStatusThunkCreator = (userId) => {
+	return (dispatch) => {
+		profileAPI.profileStatus(userId).then(data => {
+			dispatch(setUsersStatus(data))
+		})
+	}
+}
+// санки для обновления status
+export const updateStatusThunkCreator = (status) => {
+	return (dispatch) => {
+		profileAPI.updateStatus(status).then(data => {
+			if (data.resultCode === 0) {
+				dispatch(setUsersStatus(status))
+			}
+		})
+	}
+}
+
 
 export default profileReducer

@@ -23,7 +23,7 @@ const ProfileInfo = (props) => {
 					</div>
 
 					<div className={s.bio__discription}>
-						<p><ProfileStatus /> </p>
+						<p><ProfileStatus status={props.status} updateStatus={props.updateStatus} /> </p>
 						<p>Name: {props.profile.fullName}</p>
 						<p>Facebook: {props.profile.contacts.facebook}</p>
 						<p>{props.profile.lookingForAJobDescription}</p>
