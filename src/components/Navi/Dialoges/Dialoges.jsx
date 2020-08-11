@@ -3,6 +3,7 @@ import s from './Dialoges.module.css'
 import DialogeMembars from './Dialoge/DialogeMembars'
 import Message from './Message/Message'
 import MessageCopy from './Message/MessageCopy'
+import { DialogesReduxForm } from './DialogesForm';
 
 
 
@@ -17,15 +18,18 @@ const Dialoges = (props) => {
 	let messageElement = props.message
 		.map(m => <Message message={m.message} id={m.id} />
 		)
-
 	// функции для отправки сообщений и взаимодейстивя с BLL
-	let OnSandMessage = () => {
-		props.sendMsg()
+	// let OnSandMessage = () => {
+	// 	props.sendMsg()
+	// }
+	// let onMsgChange = (e) => {
+	// 	let text = e.target.value
+	// 	props.updateNewTextMessage(text)
+	// }
+	let addNewMsg = (value) => {
+		props.sendMsg(value.texarea)
 	}
-	let onMsgChange = (e) => {
-		let text = e.target.value
-		props.updateNewTextMessage(text)
-	}
+
 
 
 	return (
@@ -35,14 +39,14 @@ const Dialoges = (props) => {
 			<div className={s.dialoges}>
 				{dialogesElement}
 			</div>
-
 			<div className={s.messages}>
 				< MessageCopy />
 				{messageElement}
-				<div className={s.input_text}><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
-				<divc className={s.input_btn}><button onClick={OnSandMessage}>send</button></divc>
-			</div>
+				<DialogesReduxForm onSubmit={addNewMsg} />
+				{/* <div className={s.input_text}><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
+				<divc className={s.input_btn}><button onClick={OnSandMessage}>send</button></divc> */}
 
+			</div>
 		</div>
 	)
 }

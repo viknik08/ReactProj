@@ -17,7 +17,6 @@ let initState = {
 	],
 	message: [
 	],
-	newTextMsg: '',
 }
 
 const dialogeReducer = (state = initState, action) => {
@@ -28,10 +27,9 @@ const dialogeReducer = (state = initState, action) => {
 				newTextMsg: action.msgText,
 			}
 		case SEND_MSG:
-			let newMsg = state.newTextMsg
+			let newMsg = action.texarea
 			return {
 				...state,
-				newTextMsg: '',
 				message: [...state.message, { id: 5, message: newMsg, likeCount: 0, }],
 			}
 		default:
@@ -41,7 +39,7 @@ const dialogeReducer = (state = initState, action) => {
 
 
 // функции для actiona сообщений
-export const sendMsg = () => ({ type: SEND_MSG })
+export const sendMsg = (texarea) => ({ type: SEND_MSG, texarea })
 export const updateNewTextMessage = (text) =>
 	({ type: UPDATE_NEW_TEXT_MESSAGE, msgText: text, })
 

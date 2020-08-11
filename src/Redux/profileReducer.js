@@ -12,7 +12,6 @@ let initState = {
 		{ id: '2', message: 'Yeah, man! I miss you nigga', likeCount: '12' },
 		{ id: '3', message: 'Fuck off', likeCount: '9' },
 	],
-	newTextPost: '',
 	profile: null,
 	status: ''
 }
@@ -20,10 +19,9 @@ let initState = {
 const profileReducer = (state = initState, action) => {
 	switch (action.type) {
 		case ADD_POST:
-			let newPost = state.newTextPost
+			let newPost = action.textarea
 			return {
 				...state,
-				newTextPost: '',
 				post: [...state.post, { id: 4, message: newPost, likeCount: 0, }],
 			}
 
@@ -49,7 +47,7 @@ const profileReducer = (state = initState, action) => {
 
 
 // функции для actiona постов
-export const addPost = () => ({ type: ADD_POST })
+export const addPost = (textarea) => ({ type: ADD_POST, textarea })
 export const updateNewTextPost = (text) => ({ type: UPDATE_NEW_TEXT_POST, text })
 export const setUsersProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setUsersStatus = (status) => ({ type: SET_USER_STATUS, status })

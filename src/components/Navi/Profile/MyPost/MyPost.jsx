@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from '../Post/Post'
 import s from './MyPost.module.css'
+import { MyPostReduxForm } from './MyPostForm';
 
 
 
@@ -10,12 +11,16 @@ const MyPost = (props) => {
 		.map(p => <Post message={p.message} likeCount={p.likeCount} />
 		)
 	// функции для послания постов и взаимодействия их с MyPostContainer
-	let onAddPost = () => {
-		props.addPost()
-	}
-	let onPostChange = (e) => {
-		let text = e.target.value
-		props.updateNewTextPost(text)
+	// let onAddPost = () => {
+	// 	props.addPost()
+	// }
+	// let onPostChange = (e) => {
+	// 	let text = e.target.value
+	// 	props.updateNewTextPost(text)
+	// }
+	const addNewPost = (value) => {
+		props.addPost(value.textarea)
+
 	}
 
 	return (
@@ -24,18 +29,9 @@ const MyPost = (props) => {
 			<div className={s.newpost__title}>
 				My Post
 			</div>
-			<div className={s.newpost__input}>
-				<textarea onChange={onPostChange} value={props.newTextPost} />
-			</div>
-			<div className={s.newpost__btn}>
-				<button onClick={onAddPost} >add post</button>
-			</div>
-
-
+			<MyPostReduxForm onSubmit={addNewPost} />
 			{postElement}
-
 		</div>
-
 
 	)
 }
