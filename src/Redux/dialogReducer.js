@@ -1,5 +1,4 @@
 const SEND_MSG = 'SEND-MSG'
-const UPDATE_NEW_TEXT_MESSAGE = 'UPDATE-NEW-TEXT-MESSAGE'
 
 // дефолтные значения для dialogePage
 let initState = {
@@ -21,11 +20,6 @@ let initState = {
 
 const dialogeReducer = (state = initState, action) => {
 	switch (action.type) {
-		case UPDATE_NEW_TEXT_MESSAGE:
-			return {
-				...state,
-				newTextMsg: action.msgText,
-			}
 		case SEND_MSG:
 			let newMsg = action.texarea
 			return {
@@ -40,7 +34,6 @@ const dialogeReducer = (state = initState, action) => {
 
 // функции для actiona сообщений
 export const sendMsg = (texarea) => ({ type: SEND_MSG, texarea })
-export const updateNewTextMessage = (text) =>
-	({ type: UPDATE_NEW_TEXT_MESSAGE, msgText: text, })
+
 
 export default dialogeReducer

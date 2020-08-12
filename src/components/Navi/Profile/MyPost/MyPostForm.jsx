@@ -1,5 +1,4 @@
 import React from 'react';
-import Post from '../Post/Post'
 import s from './MyPost.module.css'
 import { reduxForm, Field } from 'redux-form';
 
