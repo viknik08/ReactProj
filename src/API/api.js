@@ -40,6 +40,19 @@ export const authAPI = {
 				return response.data
 			})
 	},
+	// axios запросы что бы зайти на профиль/выйти
+	login(email, password, rememberme = false) {
+		return instance.post(`auth/login`, { email, password, rememberme })
+			.then(response => {
+				return response.data
+			})
+	},
+	logout() {
+		return instance.delete(`auth/login`)
+			.then(response => {
+				return response.data
+			})
+	},
 }
 export const profileAPI = {
 	// axios запросы для profilecontainer

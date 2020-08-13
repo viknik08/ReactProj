@@ -16,8 +16,7 @@ const authReducer = (state = initState, action) => {
 		case SET_USER_DATA:
 			return {
 				...state,
-				...action.data,
-				isAuth: true
+				...action.payload,
 			}
 
 		default:
@@ -27,15 +26,36 @@ const authReducer = (state = initState, action) => {
 
 
 // функции для actiona сообщений
-export const setAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, data: { userId, login, email } })
+export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } })
 
 // санки для header 
 export const setAuthThunkCreator = () => {
 	return (dispatch) => {
 		authAPI.authUsers().then(data => {
 			if (data.resultCode == 0) {
-				let { id, login, email } = data.data
-				dispatch(setAuthUserData(id, login, email))
+				let { id, login, email, } = data.data
+				dispatch(setAuthUserData(id, login, email, true))
+			}
+		})
+	}
+}
+
+// санки для login 
+export const loginThunkCreator = (email, password, rememberme) => {
+	return (dispatch) => {
+		authAPI.login(email, password, rememberme).then(data => {
+			if (data.resultCode == 0) {
+				dispatch(setAuthThunkCreator())
+			}
+		})
+	}
+}
+// санки для logout
+export const logoutThunkCreator = () => {
+	return (dispatch) => {
+		authAPI.logout().then(data => {
+			if (data.resultCode == 0) {
+				dispatch(setAuthThunkCreator(null, null, null, false))
 			}
 		})
 	}
