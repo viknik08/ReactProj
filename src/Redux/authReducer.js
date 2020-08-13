@@ -3,7 +3,7 @@ import { stopSubmit } from 'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
-// дефолтные значения для 
+// дефолтные значения для dialogePage
 let initState = {
 	userId: null,
 	email: null,
