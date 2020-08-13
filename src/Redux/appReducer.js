@@ -1,5 +1,4 @@
-import { authAPI } from '../API/api'
-import { stopSubmit } from 'redux-form'
+
 import { setAuthUserData } from './authReducer'
 
 
