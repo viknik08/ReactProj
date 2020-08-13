@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import HeaderContainer from './components/Heder/HeaderContainer'
@@ -11,24 +11,45 @@ import Settings from './components/Navi/Settings/Settings'
 import DialogesContainer from './components/Navi/Dialoges/DialogesContainer';
 import FindUsersContainer from './components/Navi/FindeUsers/FindUsersContainer';
 import Login from './components/Login/Login';
+import { connect } from 'react-redux';
+import { initializeApp } from './Redux/appReducer'
+import { compose } from 'redux';
+import Preloader from './components/common/preloader/preloader';
 
-const App = (props) => {
-	return (
-		<div className="wraper">
-			<HeaderContainer />
-			<Navi />
-			<div className="wraper-content">
-				<Route path='/dialoge' render={() => <DialogesContainer />} />
-				<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
-				<Route path='/music' render={() => <Music />} />
-				<Route path='/news' render={() => <News />} />
-				<Route path='/settings' render={() => <Settings />} />
-				<Route path='/users' render={() => <FindUsersContainer />} />
-				<Route path='/login' render={() => <Login />} />
+class App extends React.Component {
+	componentDidMount() {
+		// возвращвет логин
+		this.props.initializeApp()
+	}
+	render() {
+		if (!this.props.initialized) {
+			return <Preloader />
+		}
+		return (
+			<div className="wraper" >
+				<HeaderContainer />
+				<Navi />
+				<div className="wraper-content">
+					<Route path='/dialoge' render={() => <DialogesContainer />} />
+					<Route path='/profile/:userId?' render={() => <ProfileContainer />} />
+					<Route path='/music' render={() => <Music />} />
+					<Route path='/news' render={() => <News />} />
+					<Route path='/settings' render={() => <Settings />} />
+					<Route path='/users' render={() => <FindUsersContainer />} />
+					<Route path='/login' render={() => <Login />} />
 
+				</div>
 			</div>
-		</div>
-	);
+		)
+	}
 }
 
-export default App;
+
+let mapStateToProps = (state) => ({
+	initialized: state.app.initialized
+})
+
+export default compose(
+	withRouter,
+	connect(mapStateToProps, { initializeApp }))
+	(App)
