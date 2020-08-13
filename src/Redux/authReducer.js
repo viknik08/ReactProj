@@ -29,10 +29,10 @@ const authReducer = (state = initState, action) => {
 // функции для actiona сообщений
 export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } })
 
-// санки для header 
+// санки для проверки авторизации
 export const setAuthThunkCreator = () => {
 	return (dispatch) => {
-		authAPI.authUsers().then(data => {
+		return authAPI.authUsers().then(data => {
 			if (data.resultCode == 0) {
 				let { id, login, email, } = data.data
 				dispatch(setAuthUserData(id, login, email, true))
