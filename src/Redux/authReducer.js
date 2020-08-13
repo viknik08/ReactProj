@@ -17,7 +17,8 @@ const authReducer = (state = initState, action) => {
 		case SET_USER_DATA:
 			return {
 				...state,
-				...action.payload,
+				...action.data,
+				isAuth: true
 			}
 
 		default:
@@ -27,13 +28,14 @@ const authReducer = (state = initState, action) => {
 
 
 // функции для actiona сообщений
-export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } })
+export const setAuthUserData = (userId, login, email) => ({ type: SET_USER_DATA, data: { userId, login, email } })
 
 // санки для header 
 export const setAuthThunkCreator = () => {
 	return (dispatch) => {
 		authAPI.authUsers().then(data => {
 			if (data.resultCode == 0) {
+<<<<<<< HEAD
 				let { id, login, email, } = data.data
 				dispatch(setAuthUserData(id, login, email, true))
 			}
@@ -60,6 +62,10 @@ export const logoutThunkCreator = () => {
 		authAPI.logout().then(data => {
 			if (data.resultCode == 0) {
 				dispatch(setAuthThunkCreator(null, null, null, false))
+=======
+				let { id, login, email } = data.data
+				dispatch(setAuthUserData(id, login, email))
+>>>>>>> parent of 4c2a6d9... 77+78 stage form login
 			}
 		})
 	}

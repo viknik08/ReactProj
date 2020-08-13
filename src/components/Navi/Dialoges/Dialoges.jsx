@@ -18,7 +18,14 @@ const Dialoges = (props) => {
 	let messageElement = props.message
 		.map(m => <Message message={m.message} id={m.id} />
 		)
-	// функция для dialogreducer
+	// функции для отправки сообщений и взаимодейстивя с BLL
+	// let OnSandMessage = () => {
+	// 	props.sendMsg()
+	// }
+	// let onMsgChange = (e) => {
+	// 	let text = e.target.value
+	// 	props.updateNewTextMessage(text)
+	// }
 	let addNewMsg = (value) => {
 		props.sendMsg(value.texarea)
 	}
@@ -36,6 +43,9 @@ const Dialoges = (props) => {
 				< MessageCopy />
 				{messageElement}
 				<DialogesReduxForm onSubmit={addNewMsg} />
+				{/* <div className={s.input_text}><textarea onChange={onMsgChange} value={props.newTextMsg} /></div>
+				<divc className={s.input_btn}><button onClick={OnSandMessage}>send</button></divc> */}
+
 			</div>
 		</div>
 	)
