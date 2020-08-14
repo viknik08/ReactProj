@@ -28,3 +28,18 @@
 	color: rgb(58, 219, 255);
 	text-shadow: 1px 3px 10px #000;
 }
+.loginBlock button {
+	color: rgb(58, 219, 255);
+	font-size: 30px;
+	text-transform: uppercase;
+	border: 0;
+	background: transparent;
+	font-weight: 700;
+	text-shadow: 0 0 10px #000;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.loginBlock button:hover {
+	transition: all 0.3s ease;
+	color: rgb(255, 255, 255);
+}

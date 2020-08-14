@@ -33,7 +33,7 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_US
 export const setAuthThunkCreator = () => {
 	return (dispatch) => {
 		return authAPI.authUsers().then(data => {
-			if (data.resultCode == 0) {
+			if (data.resultCode === 0) {
 				let { id, login, email, } = data.data
 				dispatch(setAuthUserData(id, login, email, true))
 			}
@@ -42,10 +42,10 @@ export const setAuthThunkCreator = () => {
 }
 
 // санки для login 
-export const loginThunkCreator = (email, password, rememberme) => {
+export const loginThunkCreator = (email, password, rememberMe) => {
 	return (dispatch) => {
-		authAPI.login(email, password, rememberme).then(data => {
-			if (data.resultCode == 0) {
+		authAPI.login(email, password, rememberMe).then(data => {
+			if (data.resultCode === 0) {
 				dispatch(setAuthThunkCreator())
 			} else {
 				let message = data.messages.length > 0 ? data.messages[0] : 'Some error'
@@ -58,8 +58,8 @@ export const loginThunkCreator = (email, password, rememberme) => {
 export const logoutThunkCreator = () => {
 	return (dispatch) => {
 		authAPI.logout().then(data => {
-			if (data.resultCode == 0) {
-				dispatch(setAuthThunkCreator(null, null, null, false))
+			if (data.resultCode === 0) {
+				dispatch(setAuthUserData(null, null, null, false))
 			}
 		})
 	}

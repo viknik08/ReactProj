@@ -32,6 +32,7 @@ export const userAPI = {
 	},
 
 }
+// =============================
 export const authAPI = {
 	// axios запросы для headercontainer для логина
 	authUsers() {
@@ -41,8 +42,8 @@ export const authAPI = {
 			})
 	},
 	// axios запросы что бы зайти на профиль/выйти
-	login(email, password, rememberme = false) {
-		return instance.post(`auth/login`, { email, password, rememberme })
+	login(email, password, rememberMe = false) {
+		return instance.post(`auth/login`, { email, password, rememberMe })
 			.then(response => {
 				return response.data
 			})
@@ -54,6 +55,7 @@ export const authAPI = {
 			})
 	},
 }
+// ================================
 export const profileAPI = {
 	// axios запросы для profilecontainer
 	profileUsers(userId) {
