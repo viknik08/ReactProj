@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { followThunkCreator, unfollowThunkCreator, getUserThunkCreator } from '../../../Redux/findUsersReducer'
+import { getUsers, getPageSize, getTotalUserCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../../Redux/Selectors/findeUsersSelectors'
 import FindUsers from './FindUsers'
 import Preloader from '../../common/preloader/preloader'
 
@@ -34,14 +35,25 @@ class FindUsersContainer extends React.Component {
 }
 
 // берем из findeUserReduser
+// let mapStateToProps = (state) => {
+// 	return {
+// 		users: state.findUsersPage.users,
+// 		pageSize: state.findUsersPage.pageSize,
+// 		totalUserCount: state.findUsersPage.totalUserCount,
+// 		currentPage: state.findUsersPage.currentPage,
+// 		isFetching: state.findUsersPage.isFetching,
+// 		followingInProgress: state.findUsersPage.followingInProgress,
+
+// 	}
+// }
 let mapStateToProps = (state) => {
 	return {
-		users: state.findUsersPage.users,
-		pageSize: state.findUsersPage.pageSize,
-		totalUserCount: state.findUsersPage.totalUserCount,
-		currentPage: state.findUsersPage.currentPage,
-		isFetching: state.findUsersPage.isFetching,
-		followingInProgress: state.findUsersPage.followingInProgress,
+		users: getUsers(state),
+		pageSize: getPageSize(state),
+		totalUserCount: getTotalUserCount(state),
+		currentPage: getCurrentPage(state),
+		isFetching: getIsFetching(state),
+		followingInProgress: getFollowingInProgress(state),
 
 	}
 }
