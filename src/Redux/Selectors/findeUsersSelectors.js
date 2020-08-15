@@ -1,3 +1,13 @@
+import { createSelector } from "reselect"
+
+// пример написания реселекторов
+export const getUser = (state) => {
+	return state.findUsersPage.users
+}
+const getUserSelector = createSelector(getUser, (users) => {
+	users.filter(u => true)
+})
+
 
 export const getUsers = (state) => {
 	return state.findUsersPage.users

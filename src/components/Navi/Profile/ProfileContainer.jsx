@@ -5,6 +5,8 @@ import { setProfileThunkCreator, setStatusThunkCreator, updateStatusThunkCreator
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect'
 import { compose } from 'redux';
+import { getProfile, getStatus } from '../../../Redux/Selectors/profileSelector'
+import { getUserId, getAuth } from '../../../Redux/Selectors/authSelector'
 
 
 
@@ -29,11 +31,17 @@ class ProfileContainer extends React.Component {
 }
 
 // инфа из store
+// let mapStateToProps = (state) => ({
+// 	profile: state.profilePage.profile,
+// 	status: state.profilePage.status,
+// 	authUserId: state.auth.userId,
+// 	isAuth: state.auth.isAuth,
+// })
 let mapStateToProps = (state) => ({
-	profile: state.profilePage.profile,
-	status: state.profilePage.status,
-	authUserId: state.auth.userId,
-	isAuth: state.auth.isAuth,
+	profile: getProfile(state),
+	status: getStatus(state),
+	authUserId: getUserId(state),
+	isAuth: getAuth(state),
 })
 
 export default compose(

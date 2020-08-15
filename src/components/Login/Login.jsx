@@ -4,6 +4,7 @@ import { LoginReduxForm } from './LoginForm';
 import { connect } from 'react-redux';
 import { loginThunkCreator } from '../../Redux/authReducer'
 import s from './Login.module.css'
+import { getAuth } from '../../Redux/Selectors/authSelector'
 
 
 const Login = (props) => {
@@ -25,7 +26,7 @@ const Login = (props) => {
 	</div>
 }
 const mapStateToProps = (state) => ({
-	isAuth: state.auth.isAuth
+	isAuth: getAuth(state),
 })
 
 export default connect(mapStateToProps, { loginThunkCreator })(Login)

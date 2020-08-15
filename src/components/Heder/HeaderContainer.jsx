@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { connect } from 'react-redux';
 import { logoutThunkCreator } from '../../Redux/authReducer'
+import { getLogin, getAuth } from '../../Redux/Selectors/authSelector'
 
 
 class HeaderContainer extends React.Component {
@@ -13,8 +14,8 @@ class HeaderContainer extends React.Component {
 	}
 }
 const mapStateToProps = (state) => ({
-	isAuth: state.auth.isAuth,
-	login: state.auth.login
+	isAuth: getAuth(state),
+	login: getLogin(state)
 })
 
 export default connect(mapStateToProps, { logoutThunkCreator })(HeaderContainer)

@@ -3,13 +3,13 @@ import { stopSubmit } from 'redux-form'
 
 const SET_USER_DATA = 'SET_USER_DATA'
 
-// дефолтные значения для dialogePage
+// дефолтные значения
 let initState = {
 	userId: null,
 	email: null,
 	login: null,
 	isAuth: false,
-	isFarching: false,
+	isFatching: false,
 }
 
 const authReducer = (state = initState, action) => {
