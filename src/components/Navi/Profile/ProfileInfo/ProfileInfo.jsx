@@ -3,7 +3,7 @@ import s from './ProfileInfo.module.css'
 import Preloader from '../../../common/preloader/preloader';
 import userPhoto from '../../../../assetc/img/user.png'
 import ProfileStatus from './ProfileStatus';
-
+import ProfileStatusHook from './ProfileStatusHook'
 
 
 const ProfileInfo = (props) => {
@@ -23,7 +23,7 @@ const ProfileInfo = (props) => {
 					</div>
 
 					<div className={s.bio__discription}>
-						<p><ProfileStatus status={props.status} updateStatus={props.updateStatus} /> </p>
+						<p><ProfileStatusHook status={props.status} updateStatus={props.updateStatus} /> </p>
 						<p>Name: {props.profile.fullName}</p>
 						<p>Facebook: {props.profile.contacts.facebook}</p>
 						<p>{props.profile.lookingForAJobDescription}</p>
