@@ -1,3 +1,6 @@
+export const getProfileAll = (state) => {
+	return state.profilePage
+}
 export const getProfile = (state) => {
 	return state.profilePage.profile
 }

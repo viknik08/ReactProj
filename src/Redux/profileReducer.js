@@ -8,9 +8,9 @@ const SET_USER_STATUS = 'SET-USER-STATUS'
 // дефолтные значения для profilePage
 let initState = {
 	post: [
-		{ id: '2', message: 'Hi, who are you?', likeCount: '10' },
-		{ id: '3', message: 'Yeah, man! I miss you nigga', likeCount: '12' },
-		{ id: '4', message: 'Fuck off', likeCount: '9' },
+		{ id: '3', message: 'Hi, who are you?', likeCount: '10' },
+		{ id: '2', message: 'Yeah, man! I miss you nigga', likeCount: '12' },
+		{ id: '1', message: 'Fuck off', likeCount: '9' },
 	],
 	profile: null,
 	status: ''
@@ -22,7 +22,7 @@ const profileReducer = (state = initState, action) => {
 			let newPost = action.textarea
 			return {
 				...state,
-				post: [{ id: 1, message: newPost, likeCount: 0, }, ...state.post],
+				post: [{ id: 4, message: newPost, likeCount: 0, }, ...state.post],
 			}
 
 		// case UPDATE_NEW_TEXT_POST:

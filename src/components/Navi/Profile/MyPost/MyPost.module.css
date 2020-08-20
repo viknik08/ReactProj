@@ -1,21 +1,16 @@
 .newpost {
+	padding: 0px 0px 0px 20px;
 }
 .newpost__title {
-	padding: 20px 0px 0px 30px;
+	margin: 0px 0px 20px 15px;
 	font-size: 40px;
 }
 .newpost__input {
-	padding: 20px 0px 0px 30px;
+	margin: 0px 0px 20px 10px;
+}
+.newpost__input textarea {
+	width: 30%;
 }
 .newpost__btn {
-	padding: 20px 0px 20px 30px;
+	margin: 0px 0px 20px 10px;
 }
-/* .newpost__star {
-	cursor: pointer;
-	width: 100px;
-	height: 100px;
-	margin: 2px;
-	float: left;
-	background: rgb(98, 98, 98);
-	clip-path: polygon(50% 0%, 63% 38%, 100% 38%, 69% 59%, 82% 100%, 50% 75%, 18% 100%, 31% 59%, 0% 38%, 37% 38%);
-} */

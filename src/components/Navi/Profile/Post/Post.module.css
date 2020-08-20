@@ -1,7 +1,18 @@
 .post {
+	padding: 0px 0px 20px 0px;
 }
 
 .post__nth {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	font-size: 24px;
+	padding: 10px;
+	border-radius: 25px;
+	background: #0b93f6;
+
+	width: 40%;
 }
 .post__nth img {
 	width: 70px;
@@ -10,7 +21,9 @@
 	padding: 10px;
 }
 
-.postSpan {
-	padding: 0px 0px 10px 10px;
-	font-size: 24px;
+.postSpan button {
+	font-size: 20px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
 }

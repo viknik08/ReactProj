@@ -19,7 +19,7 @@ const Login = (props) => {
 	return <div className={s.contaner_log}>
 		<div className={s.login_block}>
 			<div className={s.title}>
-				<span> Login</span>
+				<span>Login</span>
 			</div>
 			<LoginReduxForm onSubmit={onSubmit} />
 		</div>

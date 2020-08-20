@@ -1,6 +1,6 @@
 .header {
 	grid-area: h;
-	background: rgb(1, 78, 130);
+	background: #343a40;
 }
 .header img {
 	width: 5%;
@@ -13,33 +13,6 @@
 	float: right;
 }
 .loginBlock a {
-	color: #fff;
-}
-.loginBlock a:hover {
-	color: rgb(58, 219, 255);
+	color: #0b93f6;
 	text-shadow: 1px 4px 10px #000;
-}
-
-.loginBlock a.active {
-	color: rgb(58, 219, 255);
-	text-shadow: 1px 3px 10px #000;
-}
-.loginBlock span {
-	color: rgb(58, 219, 255);
-	text-shadow: 1px 3px 10px #000;
-}
-.loginBlock button {
-	color: rgb(58, 219, 255);
-	font-size: 30px;
-	text-transform: uppercase;
-	border: 0;
-	background: transparent;
-	font-weight: 700;
-	text-shadow: 0 0 10px #000;
-	cursor: pointer;
-	transition: all 0.3s ease;
-}
-.loginBlock button:hover {
-	transition: all 0.3s ease;
-	color: rgb(255, 255, 255);
 }

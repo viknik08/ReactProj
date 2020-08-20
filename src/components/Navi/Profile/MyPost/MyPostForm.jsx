@@ -6,8 +6,6 @@ import { Textarea } from '../../../common/FormsControl/FormsControl'
 
 const maxLength10 = maxLengthCreator(10)
 const MyPostForm = (props) => {
-
-
 	return (
 
 		<div>
@@ -15,8 +13,10 @@ const MyPostForm = (props) => {
 				<div className={s.newpost__input}>
 					<Field component={Textarea} name="textarea" placeholder="Введите текст" validate={[required, maxLength10]} />
 				</div>
-				<div className={s.newpost__btn}>
-					<button  >add post</button>
+				<div className={`${s.newpost__btn} ${'btn'}`}>
+					<button>
+						{!props.error ? <span>add post</span> : props.error}
+					</button>
 				</div>
 			</form>
 		</div>

@@ -1,13 +1,66 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background: #343a40;
+	color: #fff;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+		"Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+textarea {
+	border: none;
+	color: #fff;
+	font-size: 24px;
+	background: #343a40;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 10px 0;
+	width: 20%;
+}
+.btn button {
+	position: relative;
+	letter-spacing: 0.4px;
+	margin: 15px 0px 0px 0px;
+	color: #0b93f6;
+	font-size: 30px;
+	text-transform: uppercase;
+	border: 0;
+	background: transparent;
+	font-weight: 700;
+	text-shadow: 0 0 10px #000;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.btn button:hover {
+	transition: all 0.3s ease;
+	color: rgb(255, 255, 255);
+}
+.btn span {
+	position: relative;
+	display: block;
+	line-height: 38px;
+}
+.btn span::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background-color: #0b93f6;
+	transition: all 0.3s ease;
+}
+.btn span:hover:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 2px;
+	background-color: #0b93f6;
+	transition: all 0.3s ease;
 }

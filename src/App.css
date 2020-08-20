@@ -64,6 +64,8 @@ a.active {
 	/* grid-gap: 10px; */
 }
 .wraper-content {
-	background: rgb(54, 89, 135);
+	background: #343a40;
 	grid-area: c;
+}
+.btn {
 }

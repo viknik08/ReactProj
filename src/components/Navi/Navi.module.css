@@ -1,7 +1,8 @@
 .navi {
+	height: 100vh;
 	font-size: 40px;
 	grid-area: n;
-	background: rgb(1, 78, 130);
+	background: #343a40;
 	margin: 0px 0px 0px 0px;
 }
 .item {

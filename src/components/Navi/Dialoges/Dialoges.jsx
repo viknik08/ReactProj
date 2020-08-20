@@ -12,11 +12,11 @@ const Dialoges = (props) => {
 
 	// отрисока из массива с именами
 	let dialogesElement = props.dialoge
-		.map(d => <DialogeMembars name={d.name} id={d.id} pick={d.pick} />
+		.map(d => <DialogeMembars name={d.name} id={d.id} pick={d.pick} key={d.id} />
 		)
 	// отрисока из массива с сообщениями
 	let messageElement = props.message
-		.map(m => <Message message={m.message} id={m.id} />
+		.map(m => <Message message={m.message} id={m.id} key={m.id} />
 		)
 	// функции для отправки сообщений и взаимодейстивя с BLL
 	// let OnSandMessage = () => {

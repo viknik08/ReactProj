@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import Post from '../Post/Post'
 import s from './MyPost.module.css'
 import { MyPostReduxForm } from './MyPostForm';
@@ -9,7 +10,7 @@ const MyPost = (props) => {
 
 	//отрисовка из общего массива с постами 
 	let postElement = props.post
-		.map(p => <Post message={p.message} likeCount={p.likeCount} />
+		.map(p => <Post message={p.message} likeCount={p.likeCount} key={p.id} />
 		)
 	// функция для добавления поста
 	const addNewPost = (value) => {

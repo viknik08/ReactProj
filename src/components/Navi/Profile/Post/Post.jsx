@@ -1,5 +1,7 @@
 import React from 'react';
 import s from './Post.module.css'
+import userPhoto from '../../../../assetc/img/user.png'
+
 
 const Post = (props) => {
 	return (
@@ -7,14 +9,14 @@ const Post = (props) => {
 		<div className={`${s.about__post} ${s.post}`}>
 
 			<div className={s.post__nth}>
-				<img src="https://i.pinimg.com/originals/33/b8/69/33b869f90619e81763dbf1fccc896d8d.jpg" alt="" />
+				<img src={userPhoto} alt="" />
 
 				<div className={s.postSpan}>
 					<span>{props.message}</span>
 				</div>
 
 				<div className={s.postSpan}>
-					<p><span>like</span> {props.likeCount} </p>
+					<p><button>like</button> {props.likeCount} </p>
 				</div>
 
 			</div>

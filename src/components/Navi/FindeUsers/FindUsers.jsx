@@ -31,14 +31,14 @@ const FindUsers = (props) => {
 									<img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" />
 								</NavLink>
 							</div>
-							<div>
+							<div className={`${s.follow_btn} ${'btn'}`}>
 								{u.followed
 									? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
 										props.unfollowThunkCreator(u.id)
-									}} >unfollow</button>
+									}} ><span>unfollow</span> </button>
 									: <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
 										props.followThunkCreator(u.id)
-									}}>follow</button>}
+									}}><span>follow</span> </button>}
 
 							</div>
 						</div>
