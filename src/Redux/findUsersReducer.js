@@ -1,5 +1,5 @@
 import { userAPI } from '../API/api'
-
+import { updateObjectArray } from '../utils/object-helper'
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET-USERS'
@@ -25,22 +25,24 @@ const findUsersReducer = (state = initState, action) => {
 		case FOLLOW:
 			return {
 				...state,
-				users: state.users.map(u => {
-					if (u.id === action.userId) {
-						return { ...u, followed: true }
-					}
-					return u
-				})
+				users: updateObjectArray(state.users, action.userId, "id", { followed: true })
+				// users: state.users.map(u => {
+				// 	if (u.id === action.userId) {
+				// 		return { ...u, followed: true }
+				// 	}
+				// 	return u
+				// })
 			}
 		case UNFOLLOW:
 			return {
 				...state,
-				users: state.users.map(u => {
-					if (u.id === action.userId) {
-						return { ...u, followed: false }
-					}
-					return u
-				})
+				users: updateObjectArray(state.users, action.userId, "id", { followed: false })
+				// users: state.users.map(u => {
+				// 	if (u.id === action.userId) {
+				// 		return { ...u, followed: false }
+				// 	}
+				// 	return u
+				// })
 			}
 		case SET_USERS:
 			return {
@@ -87,37 +89,38 @@ export const toggleFollowingProgress = (isFetching, userId) => ({ type: TOGGLE_I
 
 // криетор санок для axios в findeusercontainer запросов
 export const getUserThunkCreator = (currentPage, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(setCurrentPage(currentPage))
 		dispatch(toggleIsFetching(true))
-		userAPI.getUsers(currentPage, pageSize).then(data => {
-			dispatch(toggleIsFetching(false))
-			dispatch(setUsers(data.items))
-			dispatch(setUsersTotalCount(data.totalCount))
-		})
+		let data = await userAPI.getUsers(currentPage, pageSize)
+		dispatch(toggleIsFetching(false))
+		dispatch(setUsers(data.items))
+		dispatch(setUsersTotalCount(data.totalCount))
 	}
+}
+
+// общий метод для санок follow unfollow
+const followUnfollowFlow = async (dispatch, id, apiMethod, actionCreator) => {
+	dispatch(toggleFollowingProgress(true, id))
+	let data = await apiMethod(id)
+	if (data.resultCode == 0) {
+		dispatch(actionCreator(id))
+	}
+	dispatch(toggleFollowingProgress(false, id))
 }
 // санки для follow/unfollow
 export const followThunkCreator = (id) => {
-	return (dispatch) => {
-		dispatch(toggleFollowingProgress(true, id))
-		userAPI.postUsers(id).then(data => {
-			if (data.resultCode == 0) {
-				dispatch(follow(id))
-			}
-			dispatch(toggleFollowingProgress(false, id))
-		})
+	return async (dispatch) => {
+		let apiMethod = userAPI.postUsers.bind(userAPI)
+		let actionCreator = follow
+		followUnfollowFlow(dispatch, id, apiMethod, actionCreator)
 	}
 }
 export const unfollowThunkCreator = (id) => {
-	return (dispatch) => {
-		dispatch(toggleFollowingProgress(true, id))
-		userAPI.deleteUsers(id).then(data => {
-			if (data.resultCode == 0) {
-				dispatch(unfollow(id))
-			}
-			dispatch(toggleFollowingProgress(false, id))
-		})
+	return async (dispatch) => {
+		let apiMethod = userAPI.deleteUsers.bind(userAPI)
+		let actionCreator = unfollow
+		followUnfollowFlow(dispatch, id, apiMethod, actionCreator)
 	}
 }
 

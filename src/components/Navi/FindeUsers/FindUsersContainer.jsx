@@ -21,18 +21,19 @@ class FindUsersContainer extends React.Component {
 	render() {
 		return (<>
 			{this.props.isFetching ? <Preloader /> : null}
-			<FindUsers totalUserCount={this.props.totalUserCount}
-				pageSize={this.props.pageSize}
-				currentPage={this.props.currentPage}
-				onPageChange={this.onPageChange}
-				unfollowThunkCreator={this.props.unfollowThunkCreator}
-				followThunkCreator={this.props.followThunkCreator}
-				users={this.props.users}
-				followingInProgress={this.props.followingInProgress} />
+			<FindUsers {...this.props} onPageChange={this.onPageChange} />
 		</>
 		)
 	}
 }
+// totalUserCount={this.props.totalUserCount}
+// 				pageSize={this.props.pageSize}
+// 				currentPage={this.props.currentPage}
+// 				onPageChange={this.onPageChange}
+// 				unfollowThunkCreator={this.props.unfollowThunkCreator}
+// 				followThunkCreator={this.props.followThunkCreator}
+// 				users={this.props.users}
+// 				followingInProgress={this.props.followingInProgress}
 
 // берем из findeUserReduser
 // let mapStateToProps = (state) => {

@@ -31,37 +31,34 @@ export const setAuthUserData = (userId, login, email, isAuth) => ({ type: SET_US
 
 // санки для проверки авторизации
 export const setAuthThunkCreator = () => {
-	return (dispatch) => {
-		return authAPI.authUsers().then(data => {
-			if (data.resultCode === 0) {
-				let { id, login, email, } = data.data
-				dispatch(setAuthUserData(id, login, email, true))
-			}
-		})
+	return async (dispatch) => {
+		let data = await authAPI.authUsers()
+		if (data.resultCode === 0) {
+			let { id, login, email, } = data.data
+			dispatch(setAuthUserData(id, login, email, true))
+		}
 	}
 }
 
 // санки для login 
 export const loginThunkCreator = (email, password, rememberMe) => {
-	return (dispatch) => {
-		authAPI.login(email, password, rememberMe).then(data => {
-			if (data.resultCode === 0) {
-				dispatch(setAuthThunkCreator())
-			} else {
-				let message = data.messages.length > 0 ? data.messages[0] : 'Some error'
-				dispatch(stopSubmit('login', { _error: message })) //для выявления ошибки при неправильном вводе логина или пасс
-			}
-		})
+	return async (dispatch) => {
+		let data = await authAPI.login(email, password, rememberMe)
+		if (data.resultCode === 0) {
+			dispatch(setAuthThunkCreator())
+		} else {
+			let message = data.messages.length > 0 ? data.messages[0] : 'Some error'
+			dispatch(stopSubmit('login', { _error: message })) //для выявления ошибки при неправильном вводе логина или пасс
+		}
 	}
 }
 // санки для logout
 export const logoutThunkCreator = () => {
-	return (dispatch) => {
-		authAPI.logout().then(data => {
-			if (data.resultCode === 0) {
-				dispatch(setAuthUserData(null, null, null, false))
-			}
-		})
+	return async (dispatch) => {
+		let data = await authAPI.logout()
+		if (data.resultCode === 0) {
+			dispatch(setAuthUserData(null, null, null, false))
+		}
 	}
 }
 

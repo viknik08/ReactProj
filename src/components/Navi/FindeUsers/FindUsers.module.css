@@ -31,13 +31,7 @@
 .location {
 	text-align: right;
 }
-.selectedPages {
-	font-weight: 700;
-	font-size: 25px;
-}
-span {
-	cursor: pointer;
-}
+
 .follow_btn span {
 	margin: 0;
 	font-size: 20px;

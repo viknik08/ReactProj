@@ -3,6 +3,7 @@ import s from './Post.module.css'
 import userPhoto from '../../../../assetc/img/user.png'
 
 
+
 const Post = (props) => {
 	return (
 
@@ -17,6 +18,7 @@ const Post = (props) => {
 
 				<div className={`${s.postSpan} ${'btn'}`}>
 					<p><button><span>like</span></button> {props.likeCount} </p>
+					{/* <button onChange={deletePost}>delete</button> */}
 				</div>
 
 			</div>
@@ -25,6 +27,7 @@ const Post = (props) => {
 
 	)
 }
+
 
 export default Post
 

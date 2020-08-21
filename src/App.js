@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route, withRouter } from 'react-router-dom'
-import logo from './logo.svg';
 import './App.css';
 import HeaderContainer from './components/Heder/HeaderContainer'
 import Navi from './components/Navi/Navi';

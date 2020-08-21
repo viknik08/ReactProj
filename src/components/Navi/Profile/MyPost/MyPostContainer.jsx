@@ -1,6 +1,6 @@
 import React from 'react';
 import MyPost from './MyPost'
-import { addPost } from '../../../../Redux/profileReducer'
+import { addPost, deletePost } from '../../../../Redux/profileReducer'
 import { connect } from 'react-redux'
 import { getPost, getProfile } from '../../../../Redux/Selectors/profileSelector';
 
@@ -13,6 +13,6 @@ let mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, { addPost })(MyPost)
+export default connect(mapStateToProps, { addPost, deletePost })(MyPost)
 
 

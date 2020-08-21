@@ -31,10 +31,10 @@ export const setInitialized = () => ({ type: SET_INITIALIZED, })
 export const setInitializedThunkCreator = () => {
 	return (dispatch) => {
 		let promise = dispatch(setAuthThunkCreator())
-		Promise.all([promise]).then(() => {
-			dispatch(setInitialized())
-
-		})
+		Promise.all([promise])
+			.then(() => {
+				dispatch(setInitialized())
+			})
 	}
 }
 
